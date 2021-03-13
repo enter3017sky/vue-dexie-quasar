@@ -1,5 +1,5 @@
 <template>
-  <q-form @submit="onSubmit" class="q-gutter-md">
+  <q-form @submit="save" class="q-gutter-md">
     <q-input
       outlined
       v-model="note.title"
@@ -59,7 +59,7 @@ export default {
         // this.$router.push('/');
       });
     },
-    onSubmit() {
+    save() {
       NotesDAO.getInstance().save(this.note).then((result) => {
         console.log(result);
         // this.note = result;

@@ -7,7 +7,10 @@ const db = new Dexie('NotesDatabase');
 export default db;
 
 db.version(1).stores({ notes: '++id, title, content' });
-db.open();
+
+db.open().catch((err) => {
+  console.log('err.stack || err: ', err.stack || err);
+});
 
 // db.notes.add({ title: 'Note 1', content: 'My first notes content' });
 
